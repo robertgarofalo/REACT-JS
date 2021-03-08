@@ -25,28 +25,16 @@ function Form({ inputText, setInputText, todos, setTodos, status, setStatus, fil
 }
 
   const statusHandler = (e) => {
-    // if (e.target.value === "completed"){
-    //   const showCompleted = todos.filter(el => el.completed);
-    //   setTodos([...showCompleted]);
-    // } else if (e.target.value === "uncompleted"){
-    //   const showUncompleted = todos.filter(el => !el.completed);
-    //   setTodos([...showUncompleted]);
-    // } else {
-    //   setTodos([...todos]);
-    // }
+   
     setStatus(e.target.value);
 
-    // if(status === 'all'){
-    //   setFilteredTodos
-    // }
   }
 
     return (
       <div class="form-box">
         <div className="form-container">
              <form>
-             {/*  */}
-             {/* {isMissingString ? <span className="empty-todo">Please enter a to do</span> : <span></span>} */}
+    
              
       <input type="text" className="todo-input" onChange={inputTextHandler} value={inputText} placeholder="Add new to do.."/>
       <button className="todo-button" type="submit" onClick={submitTodoHandler}>
