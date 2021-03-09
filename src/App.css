@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
+.App {
   background-image: linear-gradient(120deg, #84b5ff 0%, #4a79fa 100%);
   color: white;
   font-family: "Poppins", sans-serif;

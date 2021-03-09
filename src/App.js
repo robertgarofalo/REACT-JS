@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Spring } from 'react-spring/renderprops';
 import './App.css';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
@@ -50,13 +51,24 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <Spring 
+    from={{ opacity: 0, marginTop: -500}}
+    to={{ opacity: 1, marginTop: 0}}
+    config={{ duration: 800 }}
+    >
+    
+
+      {props => (
+    <div style={props}
+        className="App">
       <header>
         <h1>To Do List </h1>
       </header>
       <Form inputText={inputText} setInputText={setInputText} todos={todos} setTodos={setTodos} setStatus={setStatus} filterdTodos={filteredTodos} setFilteredTodos={setFilteredTodos} />
       <TodoList setTodos={setTodos} todos={todos} filteredTodos={filteredTodos} />
     </div>
+      )}
+    </Spring>
   );
 }
 

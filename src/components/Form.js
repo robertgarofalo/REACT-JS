@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Spring } from 'react-spring/renderprops';
 
 function Form({ inputText, setInputText, todos, setTodos, status, setStatus, filteredTodos, setFilteredTodos }) {
 
@@ -31,7 +32,15 @@ function Form({ inputText, setInputText, todos, setTodos, status, setStatus, fil
   }
 
     return (
-      <div class="form-box">
+
+      <Spring
+      from={{ opacity: 0 }}
+      to={{ opacity: 1 }}
+      config={{ delay: 1000 }}
+      >
+        {props => (
+
+      <div style={props} class="form-box">
         <div className="form-container">
              <form>
     
@@ -52,6 +61,9 @@ function Form({ inputText, setInputText, todos, setTodos, status, setStatus, fil
     {isMissingString ? <span className="empty-todo">*Please enter a new to do item</span> : <span></span>}
         </div>
         </div>
+
+        )}
+        </Spring>
     )
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Spring } from 'react-spring/renderprops';
 
 function Todo({setTodos, todo, todos, todoText}) {
 
@@ -23,7 +24,13 @@ function Todo({setTodos, todo, todos, todoText}) {
     };
 
     return (
-        <div className="todo">
+        <Spring
+        from={{ opacity: 0 }}
+        to={{ opacity: 1 }}
+        config={{ duration: 100 }}
+        >
+            {props => (
+        <div style={props} className="todo">
             <li className={`todo-item ${todo.completed ? 'completed' : ''}`} >{todoText}</li>
             <button className="complete-btn" onClick={completeHandler}>
                 <i className="fas fa-check"></i>
@@ -33,6 +40,8 @@ function Todo({setTodos, todo, todos, todoText}) {
             </button>
             
         </div>
+            )}
+        </Spring>
     )
 }
 
